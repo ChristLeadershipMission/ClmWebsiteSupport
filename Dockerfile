@@ -1,8 +1,10 @@
 FROM maven:3.8.5-openjdk-17 AS build
-COPY .. .
+COPY pom.xml .
+RUN mvn dependency:go-offline  # Downloads dependencies
+COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/clmWebsitesupport-0.0.1-SNAPSHOT.jar clmWebsitesupport.jar
+COPY --from=build /target/ClmWebsiteSupport-0.0.1-SNAPSHOT.jar ClmWebsiteSupport-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "clmWebsitesupport.jar"]
+ENTRYPOINT ["java", "-jar", "ClmWebsiteSupport-0.0.1-SNAPSHOT.jar"]
