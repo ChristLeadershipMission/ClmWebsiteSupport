@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class HttpServiceImpl implements HttpService{
     private final HttpUtils httpUtils;
 
-    @Scheduled(cron = "0 */10 * * * *")
+    @Scheduled(cron = "0 */2 * * * *")
     public void keepServiceAwake(){
         log.info("Waking Server...");
         log.info(LocalDateTime.now()+"::>> "+httpUtils.wakeServerUp());
