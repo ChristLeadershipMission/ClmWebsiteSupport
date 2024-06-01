@@ -16,7 +16,9 @@ public class HttpServiceImpl implements HttpService{
 
     @Scheduled(cron = "0 */2 * * * *")
     public void keepServiceAwake(){
-        log.info("Waking Server...");
+        log.info("Waking CLM Server...");
         log.info(LocalDateTime.now()+"::>> "+httpUtils.wakeServerUp());
+        log.info("Waking DeliChops Server...");
+        log.info(LocalDateTime.now()+"::>> "+httpUtils.wakeDeliChopsServerUp());
     }
 }

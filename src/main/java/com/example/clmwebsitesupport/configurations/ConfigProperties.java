@@ -10,7 +10,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Getter
 public class ConfigProperties {
     @Value("${clm.website.server.baseurl}")
-    public String clmWebsiteServerBaseUrl;
+    private String clmWebsiteServerBaseUrl;
+    @Value("${deliChops.website.server.baseurl}")
+    private String deliChopsWebsiteServerBaseUrl;
 
     @Bean
     public WebClient webClient(){
