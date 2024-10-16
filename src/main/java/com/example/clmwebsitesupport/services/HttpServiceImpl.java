@@ -14,11 +14,9 @@ import java.time.LocalDateTime;
 public class HttpServiceImpl implements HttpService{
     private final HttpUtils httpUtils;
 
-    @Scheduled(cron = "0 */2 * * * *")
+    @Scheduled(cron = "0 */5 * * * *")
     public void keepServiceAwake(){
         log.info("Waking CLM Server...");
         log.info(LocalDateTime.now()+"::>> "+httpUtils.wakeServerUp());
-        log.info("Waking DeliChops Server...");
-        log.info(LocalDateTime.now()+"::>> "+httpUtils.wakeDeliChopsServerUp());
     }
 }
