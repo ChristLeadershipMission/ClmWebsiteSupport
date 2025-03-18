@@ -34,4 +34,16 @@ public class HttpUtils {
                 .bodyToMono(String.class)
                 .block();
     }
+    
+    public String wakeMartServerUp(){
+        return WebClient.builder()
+                .baseUrl(configProperties.getMartWebsiteServerBaseUrl())
+                .build()
+                .method(HttpMethod.GET)
+                .uri("/api/v1/health-check")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+    }
+
 }
