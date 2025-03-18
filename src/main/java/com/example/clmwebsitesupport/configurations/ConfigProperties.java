@@ -13,6 +13,8 @@ public class ConfigProperties {
     private String clmWebsiteServerBaseUrl;
     @Value("${deliChops.website.server.baseurl}")
     private String deliChopsWebsiteServerBaseUrl;
+     @Value("${mart.website.server.baseurl}")
+    private String martWebsiteServerBaseUrl;
 
     @Bean
     public WebClient webClient(){
